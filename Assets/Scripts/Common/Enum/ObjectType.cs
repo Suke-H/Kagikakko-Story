@@ -2,7 +2,7 @@
 public enum ObjectType
 {
     None, 
-    Player, 
+    BookPlayer, 
     I,
     Door,
     Key,

@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class StageLoader : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private List<StageData> stageDataList;
+    
+    private StageData stageData;
+
+    public StageData Load(int StageNo)
     {
-        
+        // ステージ番号に応じてデータ読み込み
+        stageData = stageDataList[StageNo];
+
+        return stageData;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
