@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7518d7208d81607429e45070ba90813c, type: 3}
   m_Name: 1
   m_EditorClassIdentifier: 
-  testMap: 000000000000000000000000
+  bookMapCSV: {fileID: 4900000, guid: 8895b0a00fcd3e74eb78a2fe91ccea6d, type: 3}
+  storyMapCSV: {fileID: 4900000, guid: 0225cbfbc37ddbf40a3c38e8deac9301, type: 3}
   playerInitPosition: {x: 1, y: 1}
   goalObjectType: 1

@@ -10,6 +10,7 @@ public class StageLoader : MonoBehaviour
 
     [SerializeField] private PlayerPresenter playerPresenter;
     [SerializeField] private GoalPresenter goalPresenter;
+    [SerializeField] private MapPresenter mapPresenter;
     
     private StageData stageData;
 
@@ -28,8 +29,7 @@ public class StageLoader : MonoBehaviour
         stageData.LoadCSV();
 
         // マップ確認
-        CSVReader.Print("Book", stageData.bookMap);
-        CSVReader.Print("Story", stageData.storyMap);
+        mapPresenter.Initialize(stageData.bookMap, stageData.storyMap);
     }
 
 }
