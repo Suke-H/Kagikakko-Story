@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using MVPR.Model;
-using MVPR.View;
+using MVRP.Model;
+using MVRP.View;
 
-namespace MVPR.Presenter
+namespace MVRP.Presenter
 {
     public class MapPresenter : MonoBehaviour
     {

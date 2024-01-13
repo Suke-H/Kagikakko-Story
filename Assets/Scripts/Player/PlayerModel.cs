@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace MVPR.Model
+namespace MVRP.Model
 {
     public class PlayerModel : MonoBehaviour
     {
