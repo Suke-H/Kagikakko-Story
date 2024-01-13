@@ -23,6 +23,13 @@ public class StageLoader : MonoBehaviour
 
         // ゴールの初期化
         goalPresenter.Initialize(stageData.goalObjectType);
+
+        // CSV読み込み
+        stageData.LoadCSV();
+
+        // マップ確認
+        CSVReader.Print("Book", stageData.bookMap);
+        CSVReader.Print("Story", stageData.storyMap);
     }
 
 }
