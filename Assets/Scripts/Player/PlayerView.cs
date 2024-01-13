@@ -8,7 +8,12 @@ namespace MVPR.View
     {
         public void Initialize(Vector2Int position)
         {
-            Debug.Log($"PlayerView.Initialize({position})");
+            Debug.Log($"PlayerView.Initialize: {position}");
+        }
+
+        public void Move(UserInput userInput)
+        {
+            Debug.Log($"PlayerView.Move: {userInput}");
         }
     }
 

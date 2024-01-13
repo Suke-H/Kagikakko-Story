@@ -20,6 +20,15 @@ namespace MVPR.Presenter
             // ビューの初期化
             playerView.Initialize(initPosition);
         }
+
+        public void Move(UserInput userInput)
+        {
+            // モデルの移動
+            playerModel.Move(userInput);
+
+            // ビューの移動
+            playerView.Move(userInput);
+        }
     }
 
 }
