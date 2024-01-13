@@ -9,6 +9,7 @@ public class StageLoader : MonoBehaviour
     [SerializeField] private List<StageData> stageDataList;
 
     [SerializeField] private PlayerPresenter playerPresenter;
+    [SerializeField] private GoalPresenter goalPresenter;
     
     private StageData stageData;
 
@@ -19,6 +20,9 @@ public class StageLoader : MonoBehaviour
 
         // プレイヤーの初期化
         playerPresenter.Initialize(stageData.playerInitPosition);
+
+        // ゴールの初期化
+        goalPresenter.Initialize(stageData.goalObjectType);
     }
 
 }

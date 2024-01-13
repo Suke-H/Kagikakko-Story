@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "StageData")]
+[CreateAssetMenu(menuName = "MyScriptable/StageData")]
 [System.Serializable]
 public class StageData : ScriptableObject
 {
@@ -12,6 +12,6 @@ public class StageData : ScriptableObject
     public List<ObjectType> testMap;
 
     public Vector2Int playerInitPosition;
-    public ObjectType goalCondition;
+    public ObjectType goalObjectType;
 }
 
