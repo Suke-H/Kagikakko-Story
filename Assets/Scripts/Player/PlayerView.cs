@@ -2,17 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerView : MonoBehaviour
+namespace MVPR.View
 {
-    // Start is called before the first frame update
-    void Start()
+    public class PlayerView : MonoBehaviour
     {
-        
+        public void Initialize(Vector2Int position)
+        {
+            Debug.Log($"PlayerView.Initialize({position})");
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
+

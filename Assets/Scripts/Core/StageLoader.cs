@@ -2,18 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using MVPR.Presenter;
+
 public class StageLoader : MonoBehaviour
 {
     [SerializeField] private List<StageData> stageDataList;
+
+    [SerializeField] private PlayerPresenter playerPresenter;
     
     private StageData stageData;
 
-    public StageData Load(int StageNo)
+    public void Load(int StageNo)
     {
         // ステージ番号に応じてデータ読み込み
         stageData = stageDataList[StageNo];
 
-        return stageData;
+        // プレイヤーの初期化
+        playerPresenter.Initialize(stageData.playerInitPosition);
     }
 
 }

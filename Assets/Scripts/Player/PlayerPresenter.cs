@@ -2,17 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerPresenter : MonoBehaviour
+using MVPR.Model;
+using MVPR.View;
+
+namespace MVPR.Presenter
 {
-    // Start is called before the first frame update
-    void Start()
+    public class PlayerPresenter : MonoBehaviour
     {
-        
+        [SerializeField] private PlayerModel playerModel;
+        [SerializeField] private PlayerView playerView;
+
+        public void Initialize(Vector2Int initPosition)
+        {
+            // モデルの初期化
+            playerModel.Initialize(initPosition);
+
+            // ビューの初期化
+            playerView.Initialize(initPosition);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
+
+

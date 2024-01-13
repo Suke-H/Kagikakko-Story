@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7518d7208d81607429e45070ba90813c, type: 3}
   m_Name: 1
   m_EditorClassIdentifier: 
+  testMap: 000000000000000000000000
   playerInitPosition: {x: 1, y: 1}
   goalCondition: 3

@@ -6,11 +6,12 @@ namespace MVPR.Model
 {
     public class PlayerModel : MonoBehaviour
     {
-        public PlayerState playerState;
+        private PlayerState playerState;
         
-        public void Load(Vector2Int position)
+        public void Initialize(Vector2Int position)
         {
             playerState = new PlayerState(position, false, WorldType.Book, ObjectType.BookPlayer);
+            playerState.Print();
         }
     }
 

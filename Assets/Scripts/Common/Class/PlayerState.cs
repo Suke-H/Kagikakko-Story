@@ -21,6 +21,10 @@ public class PlayerState
         this.objectType = objectType;
     }
     
+    public void Print()
+    {
+        Debug.Log("PlayerState: " + position + " " + isGoal + " " + worldType + " " + objectType);
+    }
 }
 
 

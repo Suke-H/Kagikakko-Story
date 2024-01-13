@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+
+    [SerializeField] private StageLoader stageLoader;
+
+    private int stageNo;
+    private StageData stageData;
+
     void Start()
     {
-        
+        stageNo = 0;
+        stageLoader.Load(stageNo);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
