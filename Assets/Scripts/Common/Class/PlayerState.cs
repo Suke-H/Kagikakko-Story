@@ -20,6 +20,12 @@ public class PlayerState
         this.worldType = worldType;
         this.objectType = objectType;
     }
+
+    // クローン
+    public PlayerState Clone()
+    {
+        return new PlayerState(position, isGoal, worldType, objectType);
+    }
     
     public void Print()
     {

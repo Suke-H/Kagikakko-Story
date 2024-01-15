@@ -12,22 +12,27 @@ namespace MVRP.Presenter
         [SerializeField] private PlayerModel playerModel;
         [SerializeField] private PlayerView playerView;
 
+
         public void Initialize(Vector2Int initPosition)
         {
             // モデルの初期化
             playerModel.Initialize(initPosition);
-
             // ビューの初期化
             playerView.Initialize(initPosition);
         }
 
-        public void Move(UserInput userInput)
+        public PlayerState GetPlayerState()
+        {
+            return playerModel.playerState.Clone();
+        }
+
+        public void Move(Vector2Int nextPosition)
         {
             // モデルの移動
-            playerModel.Move(userInput);
+            playerModel.Move(nextPosition);
 
             // ビューの移動
-            playerView.Move(userInput);
+            playerView.Move(nextPosition);
         }
     }
 

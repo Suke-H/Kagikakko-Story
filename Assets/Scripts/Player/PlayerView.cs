@@ -11,9 +11,9 @@ namespace MVRP.View
             Debug.Log($"PlayerView.Initialize: {position}");
         }
 
-        public void Move(UserInput userInput)
+        public void Move(Vector2Int nextPosition)
         {
-            Debug.Log($"PlayerView.Move: {userInput}");
+            Debug.Log($"PlayerView.Move: {nextPosition}");
         }
     }
 

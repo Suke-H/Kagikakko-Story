@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bookMapCSV: {fileID: 4900000, guid: 8895b0a00fcd3e74eb78a2fe91ccea6d, type: 3}
   storyMapCSV: {fileID: 4900000, guid: 0225cbfbc37ddbf40a3c38e8deac9301, type: 3}
-  playerInitPosition: {x: 1, y: 1}
+  playerInitPosition: {x: 1, y: 0}
   goalObjectType: 1

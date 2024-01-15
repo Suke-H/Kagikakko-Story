@@ -7,7 +7,7 @@ namespace MVRP.Model
 {
     public class PlayerModel : MonoBehaviour
     {
-        private PlayerState playerState;
+        public PlayerState playerState { get; private set; }
 
         [SerializeField] private MapPresenter mapPresenter;
         
@@ -17,43 +17,11 @@ namespace MVRP.Model
             playerState.Print();
         }
 
-        public bool CanMove(Vector2Int nextPosition)
+        public void Move(Vector2Int nextPosition)
         {
-            return mapPresenter.CanMove(nextPosition);
-        }
-
-        public void Move(UserInput userInput)
-        {
-            Vector2Int nextPosition = playerState.position;
-
-            switch (userInput)
-            {
-                case UserInput.Up:
-                    nextPosition.y -= 1;
-                    break;
-                case UserInput.Down:
-                    nextPosition.y += 1;
-                    break;
-                case UserInput.Left:
-                    nextPosition.x -= 1;
-                    break;
-                case UserInput.Right:
-                    nextPosition.x += 1;
-                    break;
-                default:
-                    break;
-            }
-
-            if (!CanMove(nextPosition))
-            {
-                Debug.Log("Can't move");
-                return;
-            }
-
             playerState.position = nextPosition;
             playerState.Print();
         }
-
 
     }
 
