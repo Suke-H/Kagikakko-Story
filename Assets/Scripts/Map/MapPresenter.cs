@@ -18,9 +18,14 @@ namespace MVRP.Presenter
             mapView.Initialize(bookMap, storyMap);
         }
 
-        public bool CanMove(Vector2Int nextPosition)
+        public List<List<ObjectType>> GetCurrentMap()
         {
-            return mapModel.CanMove(nextPosition);
+            return mapModel.GetCurrentMap();
+        }
+
+        public void SwitchWorld(WorldType nextWorldType)
+        {
+            mapModel.SwitchWorld(nextWorldType);
         }
     }
 }

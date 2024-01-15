@@ -7,7 +7,7 @@ using MVRP.Presenter;
 
 public class UserInputReceiver : MonoBehaviour
 {
-    [SerializeField] private PlayerActionDecision playerActionDecision;
+    [SerializeField] private ActionDecision actionDecision;
 
     public UserInput GetUserInput()
     {
@@ -51,7 +51,7 @@ public class UserInputReceiver : MonoBehaviour
             userInput == UserInput.Left ||
             userInput == UserInput.Right)
         {
-            playerActionDecision.DecidePlayerAction(userInput);
+            actionDecision.DecideAction(userInput);
         }
         
         // UserInputがQuitの場合は本の世界に戻る
