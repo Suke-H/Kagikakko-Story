@@ -23,6 +23,16 @@ namespace MVRP.Presenter
             return mapModel.GetCurrentMap();
         }
 
+        public WorldType GetCurrentWorldType()
+        {
+            return mapModel.GetCurrentWorldType();
+        }
+
+        public void PrintCurrentMap()
+        {
+            CSVReader.Print(GetCurrentWorldType().ToString(), GetCurrentMap());
+        }
+
         public void SwitchWorld(WorldType nextWorldType)
         {
             mapModel.SwitchWorld(nextWorldType);

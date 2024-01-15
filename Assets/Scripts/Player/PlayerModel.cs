@@ -13,14 +13,12 @@ namespace MVRP.Model
         
         public void Initialize(Vector2Int position)
         {
-            playerState = new PlayerState(position, false, WorldType.Book, ObjectType.BookPlayer);
-            playerState.Print();
+            playerState = new PlayerState(position, false, ObjectType.BookPlayer);
         }
 
         public void Move(Vector2Int nextPosition)
         {
             playerState.position = nextPosition;
-            playerState.Print();
         }
 
     }

@@ -14,8 +14,12 @@ namespace MVRP.Model
 
         public List<List<ObjectType>> GetCurrentMap()
         {
-            CSVReader.Print(currentWorldType.ToString(), worldMapDict[currentWorldType]); // Debug
             return worldMapDict[currentWorldType];
+        }
+
+        public WorldType GetCurrentWorldType()
+        {
+            return currentWorldType;
         }
 
         public void Initialize(List<List<ObjectType>> bookMap, List<List<ObjectType>> storyMap)

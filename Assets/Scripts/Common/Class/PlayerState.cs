@@ -9,27 +9,24 @@ public class PlayerState
 {
     public Vector2Int position;
     public bool isGoal;
-
-    public WorldType worldType;
     public ObjectType objectType;
 
-    public PlayerState(Vector2Int position, bool isGoal, WorldType worldType, ObjectType objectType)
+    public PlayerState(Vector2Int position, bool isGoal, ObjectType objectType)
     {
         this.position = position;
         this.isGoal = isGoal;
-        this.worldType = worldType;
         this.objectType = objectType;
     }
 
     // クローン
     public PlayerState Clone()
     {
-        return new PlayerState(position, isGoal, worldType, objectType);
+        return new PlayerState(position, isGoal,  objectType);
     }
     
     public void Print()
     {
-        Debug.Log("PlayerState: " + position + " " + isGoal + " " + worldType + " " + objectType);
+        Debug.Log("PlayerState: " + position + " " + isGoal + " " + objectType);
     }
 }
 

@@ -6,33 +6,45 @@ using MVRP.Presenter;
 
 public class ActionDecision : MonoBehaviour
 {
-    
+    [SerializeField] private BookWorldDecision bookWorldDecision;
+    [SerializeField] private StoryWorldDecision storyWorldDecision;
     [SerializeField] private ActionSender actionSender;
     [SerializeField] private PlayerPresenter playerPresenter;
     [SerializeField] private MapPresenter mapPresenter;
 
     public void DecideAction(UserInput userInput)
     {
-        // プレイヤーの次の位置を計算する
+        // 現在の情報
         Vector2Int currentPosition = playerPresenter.GetPlayerState().position;
+        WorldType currentWorldType = mapPresenter.GetCurrentWorldType();
+        var currentMap = mapPresenter.GetCurrentMap();
+
+        /* 行動 */
+        Actions actions = new Actions(currentPosition, currentWorldType);
+
+        // 次の位置
         Vector2Int nextPosition = CalcNextPosition(currentPosition, userInput);
 
-        // 移動場所を決定させる
-        Vector2Int determinedPosition;
+        // マップの範囲外には移動できない
         if (IsInsideMapArea(nextPosition))
         {
-            determinedPosition = nextPosition;
+            // 本の世界
+            if (mapPresenter.GetCurrentWorldType() == WorldType.Book)
+            {
+                actions = bookWorldDecision.DecideAction(currentMap, nextPosition);
+            }
+            // 物語の世界
+            else
+            {
+                actions = storyWorldDecision.DecideAction(currentMap, currentPosition, nextPosition);
+            }
         }
-        else
-        {
-            determinedPosition = currentPosition;
-        }
-
-        // 行動の保存
-        Actions actions = new Actions(determinedPosition, WorldType.Book);
-
         // 行動を送信
         actionSender.SendActionToPresenters(actions);
+
+        // デバッグ用
+        mapPresenter.PrintCurrentMap();
+        playerPresenter.PrintPlayerState();
     }
 
     public Vector2Int CalcNextPosition(Vector2Int currentPosition, UserInput userInput)

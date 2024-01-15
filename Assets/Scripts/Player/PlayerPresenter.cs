@@ -26,6 +26,11 @@ namespace MVRP.Presenter
             return playerModel.playerState.Clone();
         }
 
+        public void PrintPlayerState()
+        {
+            GetPlayerState().Print();
+        }
+
         public void Move(Vector2Int nextPosition)
         {
             // モデルの移動
