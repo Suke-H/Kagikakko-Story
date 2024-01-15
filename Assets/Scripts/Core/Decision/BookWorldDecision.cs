@@ -1,0 +1,28 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class BookWorldDecision : MonoBehaviour
+{
+    /* 
+        本の世界での行動を決定する 
+        - 次の位置へ移動できることは確定
+        - 次の位置に「」付き文字があれば物語の世界に移動
+    */
+    public Actions DecideAction(List<List<ObjectType>> currentMap, Vector2Int nextPosition)
+    {
+        // 次の位置のオブジェクトを取得
+        ObjectType nextObject = currentMap[nextPosition.y][nextPosition.x];
+
+        // 次の位置に「」付き文字があれば物語の世界に移動
+        if (nextObject != ObjectType.None)
+        {
+            return new Actions(nextPosition, WorldType.Story);
+        }
+        // なければ本の世界に留まる
+        else
+        {
+            return new Actions(nextPosition, WorldType.Book);
+        }
+    }
+}

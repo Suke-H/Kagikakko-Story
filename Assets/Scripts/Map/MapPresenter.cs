@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using MVPR.Model;
-using MVPR.View;
+using MVRP.Model;
+using MVRP.View;
 
-namespace MVPR.Presenter
+namespace MVRP.Presenter
 {
     public class MapPresenter : MonoBehaviour
     {
@@ -16,6 +16,26 @@ namespace MVPR.Presenter
         {
             mapModel.Initialize(bookMap, storyMap);
             mapView.Initialize(bookMap, storyMap);
+        }
+
+        public List<List<ObjectType>> GetCurrentMap()
+        {
+            return mapModel.GetCurrentMap();
+        }
+
+        public WorldType GetCurrentWorldType()
+        {
+            return mapModel.GetCurrentWorldType();
+        }
+
+        public void PrintCurrentMap()
+        {
+            CSVReader.Print(GetCurrentWorldType().ToString(), GetCurrentMap());
+        }
+
+        public void SwitchWorld(WorldType nextWorldType)
+        {
+            mapModel.SwitchWorld(nextWorldType);
         }
     }
 }
