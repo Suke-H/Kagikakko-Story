@@ -6,7 +6,7 @@ using Cysharp.Threading.Tasks;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private StageLoader stageLoader;
-    [SerializeField] private UserInputController userInputController;
+    [SerializeField] private UserInputReceiver userInputReceiver;
 
     private int stageNo;
     private StageData stageData;
@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
         while (true)
         {
             // ユーザーの入力に応じてプレイヤーを移動させる
-            await userInputController.RespondToUserInput();
+            await userInputReceiver.RespondToUserInput();
         }
     } 
 

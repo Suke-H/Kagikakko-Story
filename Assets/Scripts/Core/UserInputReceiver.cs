@@ -5,7 +5,7 @@ using Cysharp.Threading.Tasks;
 
 using MVRP.Presenter;
 
-public class UserInputController : MonoBehaviour
+public class UserInputReceiver : MonoBehaviour
 {
     [SerializeField] private PlayerPresenter playerPresenter;
 
