@@ -7,8 +7,20 @@ using MVRP.Presenter;
 
 public class UserInputReceiver : MonoBehaviour
 {
-    [SerializeField] private ActionDecision actionDecision;
+    [SerializeField] private ActionDecisionMaker actionDecisionMaker;
+    
+    public async UniTask RespondToUserInput()
+    {
+        // 何かキーが押されるまで待つ
+        await UniTask.WaitUntil(() => Input.anyKeyDown);
 
+        // ユーザーの入力を取得する
+        UserInput userInput = GetUserInput();
+
+        // ユーザーの入力に応じて行動を決定する
+        actionDecisionMaker.DecideAction(userInput);
+        
+    }
     public UserInput GetUserInput()
     {
         UserInput input = UserInput.None;
@@ -35,27 +47,6 @@ public class UserInputReceiver : MonoBehaviour
         }
 
         return input;
-    }
-    
-    public async UniTask RespondToUserInput()
-    {
-        // 何かキーが押されるまで待つ
-        await UniTask.WaitUntil(() => Input.anyKeyDown);
-
-        // ユーザーの入力を取得する
-        UserInput userInput = GetUserInput();
-
-        // UserInputが上下左右の場合はプレイヤーを移動させる
-        if (userInput == UserInput.Up ||
-            userInput == UserInput.Down ||
-            userInput == UserInput.Left ||
-            userInput == UserInput.Right)
-        {
-            actionDecision.DecideAction(userInput);
-        }
-        
-        // UserInputがQuitの場合は本の世界に戻る
-
     }
 
 }
