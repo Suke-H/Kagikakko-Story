@@ -17,6 +17,11 @@ namespace MVRP.Presenter
             mapModel.Initialize(bookMap, storyMap);
             mapView.Initialize(bookMap, storyMap);
         }
+
+        public bool CanMove(Vector2Int nextPosition)
+        {
+            return mapModel.CanMove(nextPosition);
+        }
     }
 }
 
