@@ -11,6 +11,11 @@ namespace MVRP.Presenter
         [SerializeField] private ObjectModel objectModel;
         [SerializeField] private ObjectView objectView;
 
+        public ObjectAttribute objectAttribute
+        {
+            get { return objectModel.objectAttribute.Clone(); }
+        }
+
         public void Initialize(ObjectType objectType)
         {
             // モデルの初期化

@@ -8,18 +8,13 @@ namespace MVRP.Model
     {
         private List<List<ObjectType>> bookMap;
         private List<List<ObjectType>> storyMap;
-        
-        private WorldType currentWorldType;
+
+        public WorldType currentWorldType  { get; private set; }
         private Dictionary<WorldType, List<List<ObjectType>>> worldMapDict = new Dictionary<WorldType, List<List<ObjectType>>>();
 
         public List<List<ObjectType>> GetCurrentMap()
         {
             return worldMapDict[currentWorldType];
-        }
-
-        public WorldType GetCurrentWorldType()
-        {
-            return currentWorldType;
         }
 
         public void Initialize(List<List<ObjectType>> bookMap, List<List<ObjectType>> storyMap)

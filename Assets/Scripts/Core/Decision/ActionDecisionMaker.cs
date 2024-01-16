@@ -16,9 +16,9 @@ public class ActionDecisionMaker : MonoBehaviour
     public void DecideAction(UserInput userInput)
     {
         /* 現在の情報 */
-        Vector2Int currentPosition = playerPresenter.GetPlayerState().position;
-        WorldType currentWorldType = mapPresenter.GetCurrentWorldType();
-        var currentMap = mapPresenter.GetCurrentMap();
+        Vector2Int currentPosition = playerPresenter.playerState.position;
+        WorldType currentWorldType = mapPresenter.currentWorldType;
+        var currentMap = mapPresenter.currentMap;
 
         // 次の位置を計算
         Vector2Int nextPosition = CalcNextPosition(currentPosition, userInput);

@@ -11,6 +11,15 @@ namespace MVRP.Presenter
         [SerializeField] private MapModel mapModel;
         [SerializeField] private MapView mapView;
 
+        public List<List<ObjectType>> currentMap
+        {
+            get { return mapModel.GetCurrentMap(); }
+        }
+
+        public WorldType currentWorldType
+        {
+            get { return mapModel.currentWorldType; }
+        }
 
         public void Initialize(List<List<ObjectType>> bookMap, List<List<ObjectType>> storyMap)
         {
@@ -18,19 +27,9 @@ namespace MVRP.Presenter
             mapView.Initialize(bookMap, storyMap);
         }
 
-        public List<List<ObjectType>> GetCurrentMap()
-        {
-            return mapModel.GetCurrentMap();
-        }
-
-        public WorldType GetCurrentWorldType()
-        {
-            return mapModel.GetCurrentWorldType();
-        }
-
         public void PrintCurrentMap()
         {
-            CSVReader.Print(GetCurrentWorldType().ToString(), GetCurrentMap());
+            CSVReader.Print(currentWorldType.ToString(), currentMap);
         }
 
         public void SwitchWorld(WorldType nextWorldType)

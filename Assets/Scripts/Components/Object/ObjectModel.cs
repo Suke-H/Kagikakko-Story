@@ -7,7 +7,7 @@ namespace MVRP.Model
     public class ObjectModel : MonoBehaviour
     {
         private ObjectType objectType;
-        private ObjectAttribute objectAttribute;
+        public ObjectAttribute objectAttribute { get; private set; }
 
         public void Initialize(ObjectType objectType)
         {
