@@ -628,6 +628,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 991c9b1fb98267d41937b3aca8325277, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bookWordPrefab: {fileID: 2614208221714215453, guid: 74dea68523a65a34191c781932d62339,
+    type: 3}
+  storyObjectPrefab: {fileID: 4754697690803267876, guid: 0d3ae37feb9db0849bb1ecc422c34df9,
+    type: 3}
 --- !u!1 &563667141
 GameObject:
   m_ObjectHideFlags: 0

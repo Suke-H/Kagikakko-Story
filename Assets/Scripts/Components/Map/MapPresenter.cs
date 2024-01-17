@@ -10,29 +10,32 @@ namespace MVRP.Presenter
     {
         [SerializeField] private MapModel mapModel;
         [SerializeField] private MapView mapView;
-
+        public WorldType currentWorldType
+        {
+            get { return mapModel.currentWorldType; }
+        }
+        public List<List<WordPresenter>> bookWordMap
+        {
+            get { return mapModel.bookWordMap; }
+        }
+        public List<List<ObjectPresenter>> storyObjectMap
+        {
+            get { return mapModel.storyObjectMap; }
+        }
 
         public void Initialize(List<List<ObjectType>> bookMap, List<List<ObjectType>> storyMap)
         {
             mapModel.Initialize(bookMap, storyMap);
             mapView.Initialize(bookMap, storyMap);
         }
-
-        public List<List<ObjectType>> GetCurrentMap()
+        public void PrintObjectMap()
         {
-            return mapModel.GetCurrentMap();
+            CSVReader.PrintObjectMap(storyObjectMap);
         }
-
-        public WorldType GetCurrentWorldType()
+        public void PrintWordMap()
         {
-            return mapModel.GetCurrentWorldType();
+            CSVReader.PrintWordMap(bookWordMap);
         }
-
-        public void PrintCurrentMap()
-        {
-            CSVReader.Print(GetCurrentWorldType().ToString(), GetCurrentMap());
-        }
-
         public void SwitchWorld(WorldType nextWorldType)
         {
             mapModel.SwitchWorld(nextWorldType);
