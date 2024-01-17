@@ -10,12 +10,13 @@ namespace MVRP.Model
     public class MapModel : MonoBehaviour
     {
         [SerializeField] private ObjectMVP bookObjectPrefab;
+        [SerializeField] private WordMVP wordObjectPrefab;
 
         private List<List<ObjectType>> bookMap;
         private List<List<ObjectType>> storyMap;
 
         private List<List<ObjectPresenter>> bookObjectMap;
-        private List<List<ObjectPresenter>> storyObjectMap;
+        private List<List<WordPresenter>> storyWordMap;
 
         public WorldType currentWorldType  { get; private set; }
         private Dictionary<WorldType, List<List<ObjectType>>> worldMapDict = new Dictionary<WorldType, List<List<ObjectType>>>();
@@ -35,9 +36,9 @@ namespace MVRP.Model
             bookObjectMap = bookMap.Select((row, y) => 
                 row.Select((item, x) => ConvertToObject(item, x, y)).ToList()
             ).ToList();
-            // storyObjectMap = storyMap.Select(
-            //     row => Enumerable.Repeat(None, row.Count).ToList()
-            // ).ToList();
+            storyWordMap = storyMap.Select((row, y) => 
+                row.Select((item, x) => ConvertToWord(item, x, y)).ToList()
+            ).ToList();
 
             // 現在の世界を本の世界に設定
             currentWorldType = WorldType.Book;
@@ -47,22 +48,38 @@ namespace MVRP.Model
         }
 
         // ObjectTypeからObjectPresenterへの変換
-        private ObjectPresenter ConvertToObject(ObjectType objectType, int x, int y) {
+        private ObjectPresenter ConvertToObject(ObjectType objectType, int x, int y) 
+        {
             // Noneの場合は何もしない
             if (objectType == ObjectType.None) {
                 return null;
             }
-
             // インスタンス作成
             ObjectMVP objectMVP = Instantiate(bookObjectPrefab); 
             objectMVP.transform.SetParent(transform); // 親設定
             ObjectPresenter objectPresenter = objectMVP.GetObjectPresenter();
-            
             // 初期化
             objectPresenter.Initialize(objectType, x, y);
 
             return objectPresenter;
         }   
+
+        // ObjectTypeからWordPresenterへの変換
+        private WordPresenter ConvertToWord(ObjectType objectType, int x, int y) 
+        {
+            // Noneの場合は何もしない
+            if (objectType == ObjectType.None) {
+                return null;
+            }
+            // インスタンス作成
+            WordMVP wordMVP = Instantiate(wordObjectPrefab); 
+            wordMVP.transform.SetParent(transform); // 親設定
+            WordPresenter wordPresenter = wordMVP.GetWordPresenter();
+            // 初期化
+            wordPresenter.Initialize(objectType, x, y);
+
+            return wordPresenter;
+        }
 
         public bool SwitchWorld(WorldType nextWorldType)
         {
