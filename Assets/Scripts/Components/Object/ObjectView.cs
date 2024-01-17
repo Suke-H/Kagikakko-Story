@@ -8,7 +8,7 @@ namespace MVRP.View
     {
         public void Initialize(ObjectType objectType)
         {
-            Debug.Log($"ゴールの初期化: {objectType}");
+            // Debug.Log($"初期化: {objectType}");
         }
     }
 }

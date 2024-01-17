@@ -5,25 +5,27 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 [System.Serializable]
-public class ObjectAttribute
+public class ObjectState
 {
     public ObjectType objectType;
+    public Vector2Int position;
     public bool canPush;
 
-    public ObjectAttribute(ObjectType objectType, bool canPush)
+    public ObjectState(ObjectType objectType, Vector2Int position, bool canPush)
     {
         this.objectType = objectType;
+        this.position = position;
         this.canPush = canPush;
     }
 
     // クローン
-    public ObjectAttribute Clone()
+    public ObjectState Clone()
     {
-        return new ObjectAttribute(objectType, canPush);
+        return new ObjectState(objectType, position, canPush);
     }
     
     public void Print()
     {
-        Debug.Log("ObjectAttribute: " + " " + objectType + " " + canPush);
+        Debug.Log("ObjectState: " + " " + objectType + " " + position +  " "  + canPush);
     }
 }

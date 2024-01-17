@@ -18,17 +18,13 @@ public class StageLoader : MonoBehaviour
     {
         // ステージ番号に応じてデータ読み込み
         stageData = stageDataList[StageNo];
-
+        
         // プレイヤーの初期化
         playerPresenter.Initialize(stageData.playerInitPosition);
-
         // ゴールの初期化
         goalPresenter.Initialize(stageData.goalObjectType);
-
-        // CSV読み込み
-        stageData.LoadCSV();
-
-        // マップ確認
+        // マップの初期化
+        stageData.LoadCSV(); // CSV読み込み
         mapPresenter.Initialize(stageData.bookMap, stageData.storyMap);
     }
 
