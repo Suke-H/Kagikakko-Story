@@ -18,7 +18,9 @@ public class ActionDecisionMaker : MonoBehaviour
         /* 現在の情報 */
         Vector2Int currentPosition = playerPresenter.playerState.position;
         WorldType currentWorldType = mapPresenter.currentWorldType;
-        var currentMap = mapPresenter.currentMap;
+
+        var bookObjectMap = mapPresenter.bookWordMap;
+        var storyWordMap = mapPresenter.storyObjectMap;
 
         // 次の位置を計算
         Vector2Int nextPosition = CalcNextPosition(currentPosition, userInput);
@@ -36,13 +38,16 @@ public class ActionDecisionMaker : MonoBehaviour
         }
         else
         {
-            actions = moveDecision.DecideToMove(currentPosition, nextPosition, currentWorldType, currentMap);
+            actions = moveDecision.DecideToMove(currentPosition, nextPosition, currentWorldType, bookObjectMap, storyWordMap);
         }
         
         // 行動を送信
         actionSender.SendActionToPresenters(actions);
         // デバッグ用
-        mapPresenter.PrintCurrentMap();
+        // mapPresenter.PrintCurrentMap();
+        if (currentWorldType == WorldType.Story) mapPresenter.PrintObjectMap();
+        else mapPresenter.PrintWordMap();
+
         playerPresenter.PrintPlayerState();
     }
 
