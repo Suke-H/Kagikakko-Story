@@ -10,7 +10,6 @@ public class CreateMap : MonoBehaviour
 	[SerializeField] private MapTile[] Objects;
 
 	private float gridSize;
-
 	private List<List<GridSquare>> gridMap;
 	private List<List<string>> bookMap;
 	private List<List<int>> objectMap;
@@ -30,22 +29,21 @@ public class CreateMap : MonoBehaviour
 		bookMap.Add(new List<string> { "", "私", "は", "目", "を", "覚", "ま", "し", "た", "" });
 		bookMap.Add(new List<string> { "", "こ", "こ", "は", "ど", "こ", "だ", "ろ", "う", "" });
 		bookMap.Add(new List<string> { "", "", "", "", "", "", "", "", "", "" });
+		bookMap.Add(new List<string> { "", "鍵", "で", "扉", "を", "開", "け", "て", "", "" });
+		bookMap.Add(new List<string> { "", "", "", "", "", "先", "へ", "進", "ん", "だ" });
 		bookMap.Add(new List<string> { "", "", "", "", "", "", "", "", "", "" });
 		bookMap.Add(new List<string> { "", "", "", "", "", "", "", "", "", "" });
 		bookMap.Add(new List<string> { "", "", "", "", "", "", "", "", "", "" });
-		bookMap.Add(new List<string> { "", "", "", "", "", "", "", "", "", "" });
-		bookMap.Add(new List<string> { "", "", "", "", "", "", "", "", "", "" });
-
 
 		objectMap = new List<List<int>>();
 		objectMap.Add(new List<int> { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 });
 		objectMap.Add(new List<int> { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 });
 		objectMap.Add(new List<int> { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 });
 		objectMap.Add(new List<int> { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 });
+		objectMap.Add(new List<int> { 0, 0, 0, 0, 0, 0, 0, 0, 3, 0 });
 		objectMap.Add(new List<int> { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 });
 		objectMap.Add(new List<int> { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 });
 		objectMap.Add(new List<int> { 0, 0, 1, 0, 0, 0, 0, 2, 0, 0 });
-		objectMap.Add(new List<int> { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 });
 		objectMap.Add(new List<int> { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 });
 		objectMap.Add(new List<int> { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 });
 
@@ -61,6 +59,7 @@ public class CreateMap : MonoBehaviour
 			for (int x = 0; x < columns; x++)
 			{
 				var gridSquare = Instantiate(gridSquarePrefab, new Vector3(-offset + x*gridSize, 0, offset - z*gridSize), Quaternion.identity);
+				Debug.Log("Vector3(-offset + x*gridSize, 0, offset - z*gridSize) = " + new Vector3(-offset + x * gridSize, 0, offset - z * gridSize));
 				gridSquare.transform.parent = this.transform; 
 				gridSquare.name = $"{z}_{x}";
 				gridSquare.WriteText(bookMap[z][x]);
@@ -77,7 +76,6 @@ public class CreateMap : MonoBehaviour
 					// Y方向にSpriteの高さの半分だけ上げる
 					_object.transform.position += new Vector3(0, height / 2, 0);
 					Debug.Log("height = " + height);
-
 				}
 			}
 		}
