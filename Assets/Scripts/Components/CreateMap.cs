@@ -8,6 +8,8 @@ public class CreateMap : MonoBehaviour
 	[SerializeField] private int rows;
 	[SerializeField] private Transform entirePlaneTransform;
 	[SerializeField] private MapTile[] Objects;
+	[SerializeField] private List<string> keywords;
+	[SerializeField] private List<Color> keywordColors;
 
 	private float gridSize;
 	private List<List<GridSquare>> gridMap;
@@ -47,6 +49,11 @@ public class CreateMap : MonoBehaviour
 		objectMap.Add(new List<int> { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 });
 		objectMap.Add(new List<int> { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 });
 
+		keywords = new List<string>();
+		keywords.Add("私");
+		keywords.Add("鍵");
+		keywords.Add("扉");
+
 		GenerateGrid();
 	}
 
@@ -76,6 +83,12 @@ public class CreateMap : MonoBehaviour
 					// Y方向にSpriteの高さの半分だけ上げる
 					_object.transform.position += new Vector3(0, height / 2, 0);
 					Debug.Log("height = " + height);
+				}
+
+				if (keywords.Contains(bookMap[z][x]))
+				{
+					gridSquare.WriteKakko();
+					// gridSquare.WriteKakko(keywordColors[keywords.IndexOf(bookMap[z][x])]);
 				}
 			}
 		}

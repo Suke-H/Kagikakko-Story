@@ -371,6 +371,14 @@ MonoBehaviour:
   - {fileID: 8427963678946215549, guid: e2697df568a7550479d288e518d4f6f9, type: 3}
   - {fileID: 6540939185827006932, guid: d0e8780e3d93ab141add92314da6085b, type: 3}
   - {fileID: 1794826802823952407, guid: 0ccf952f2ab2e984b8996a88f0230868, type: 3}
+  keywords:
+  - "\u79C1"
+  - "\u6249"
+  - "\u9375"
+  keywordColors:
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 0.1764706, g: 0.5764706, b: 1, a: 1}
+  - {r: 0.89411765, g: 0.7137255, b: 0.03529412, a: 1}
 --- !u!1 &269286080
 GameObject:
   m_ObjectHideFlags: 0
